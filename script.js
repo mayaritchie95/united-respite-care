@@ -82,3 +82,18 @@ if (resetBtn) {
     if (live) live.hidden = false;
   });
 }
+
+// 3) Testimonial video: custom play overlay
+(function () {
+  var vid = document.getElementById('testimonial-video');
+  var btn = document.getElementById('video-play-btn');
+  if (!vid || !btn) return;
+  btn.addEventListener('click', function () {
+    btn.classList.add('is-hidden');
+    vid.play();
+    vid.focus();
+  });
+  // If the user pauses, bring the overlay back only if playback hasn't started far in
+  vid.addEventListener('play', function () { btn.classList.add('is-hidden'); });
+  vid.addEventListener('ended', function () { btn.classList.remove('is-hidden'); });
+})();
