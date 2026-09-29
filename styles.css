@@ -1,0 +1,89 @@
+/* United Respite Care — landing page styles
+   Brand: #2B274A (main) · #E5D3AA (background) · #ECB30F (accent, sparing) · #1D92FF (hover) */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #FCFCFA; }
+
+img { max-width: 100%; }
+
+a { color: #2B274A; }
+a:hover { color: #1D92FF; }
+*:focus-visible { outline: 3px solid #1D92FF; outline-offset: 3px; }
+
+.btn { transition: background-color .15s, border-color .15s, color .15s; }
+.btn:hover { background: #1D92FF !important; border-color: #1D92FF !important; color: #FFFFFF !important; }
+
+input::placeholder, textarea::placeholder { color: #6B7873; }
+
+/* Chips */
+.chip[aria-pressed="true"] {
+  background: #2B274A !important;
+  color: #FFFFFF !important;
+  border-color: #2B274A !important;
+}
+
+/* Sticky mobile call bar — hidden on desktop */
+.mobile-callbar { display: none; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1080px) {
+  .grid-hero { grid-template-columns: 1fr !important; }
+  .grid-hero > div:first-child { padding-top: 0 !important; }
+  .grid-2 { grid-template-columns: 1fr !important; gap: 48px !important; }
+  .grid-founder { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 28px !important; }
+  .site-header .main-nav { display: none !important; }
+  .sec, .hero, .trust { padding-left: 40px !important; padding-right: 40px !important; }
+  .site-footer { padding-left: 40px !important; padding-right: 40px !important; }
+  #founder .grid-founder > img,
+  #founder img { height: 460px !important; }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 680px) {
+  .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr !important; }
+  .sec, .hero, .trust { padding-left: 20px !important; padding-right: 20px !important;
+    padding-top: 64px !important; padding-bottom: 64px !important; }
+  .site-footer { padding: 40px 20px !important; }
+  .site-footer > div:first-child { flex-direction: column !important; gap: 24px !important; }
+  .site-footer > div:first-child > div:last-child { text-align: left !important; }
+  .site-header { height: auto !important; padding: 12px 20px !important; }
+  .header-cta { gap: 12px !important; }
+  .header-cta a[href^="tel"] { display: none !important; }   /* phone number moves to sticky bar */
+
+  /* Big display type down a notch */
+  h1 { font-size: 40px !important; }
+  #approach h2 { font-size: 42px !important; }
+  #areas h2 { font-size: 40px !important; }
+
+  /* Hero form: single column fields */
+  #consult .grid-2,
+  #consult div[style*="repeat(2, minmax(0, 1fr))"] { grid-template-columns: 1fr !important; }
+
+  /* Founder photo shorter on phones */
+  #founder img { height: 380px !important; border-radius: 120px 120px 20px 20px !important; }
+
+  /* Leave room for the sticky bar */
+  body { padding-bottom: 96px; }
+
+  .mobile-callbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: #FFFFFF;
+    border-top: 1px solid #E2D9C4;
+    box-shadow: 0 -12px 30px -18px rgba(43, 39, 74, 0.35);
+    z-index: 50;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
