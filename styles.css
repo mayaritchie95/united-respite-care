@@ -121,6 +121,8 @@ a:hover{color:var(--blue);}
 .chip[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy);}
 .form-fine{color:var(--muted);font-size:.9rem;text-align:center;line-height:1.5;}
 .thanks{padding:44px 30px 48px;display:flex;flex-direction:column;gap:16px;}
+/* the hidden attribute must always win over the display rules above */
+[hidden]{display:none !important;}
 .thanks .check{width:56px;height:56px;border-radius:50%;background:#eee9dc;color:var(--navy);
   display:flex;align-items:center;justify-content:center;}
 

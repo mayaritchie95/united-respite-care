@@ -67,18 +67,18 @@ function fallbackMailto(d) {
 }
 
 function showThanks() {
-  var f = document.getElementById('lead-form');
+  var live = document.getElementById('form-live');
   var t = document.getElementById('thanks-panel');
-  if (f) f.style.display = 'none';
+  if (live) live.hidden = true;
   if (t) { t.hidden = false; t.setAttribute('tabindex','-1'); t.focus(); t.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 }
 
 var resetBtn = document.getElementById('reset-btn');
 if (resetBtn) {
   resetBtn.addEventListener('click', function () {
-    var f = document.getElementById('lead-form');
+    var live = document.getElementById('form-live');
     var t = document.getElementById('thanks-panel');
     if (t) t.hidden = true;
-    if (f) f.style.display = 'flex';
+    if (live) live.hidden = false;
   });
 }
