@@ -181,11 +181,16 @@ a:hover{color:var(--blue);}
 /* Offer band */
 .btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold);}
 .btn-gold:hover{background:var(--blue);border-color:var(--blue);color:#fff;}
-.offerband{background:var(--navy);color:#fff;text-align:center;padding-block:clamp(52px,7vw,88px);}
-.offerband .wrap{max-width:760px;display:flex;flex-direction:column;align-items:center;gap:18px;}
-.offerband h2{color:#fff;}
-.offerband p{color:#e2e0ef;font-size:1.1rem;line-height:1.6;max-width:60ch;}
-.offerband .btn{margin-top:6px;}
+/* "You don't have to wait for a crisis" — warm, emotionally resonant band */
+.crisis{background:var(--sand);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.crisis-inner{max-width:760px;margin-inline:auto;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:18px;}
+.crisis h2{font-size:clamp(1.7rem,3vw,2.5rem);max-width:20ch;}
+.crisis-lead{color:#3a3752;font-size:clamp(1.05rem,1.5vw,1.2rem);line-height:1.65;max-width:60ch;}
+.crisis-line{color:#3a3752;font-size:clamp(1.05rem,1.5vw,1.2rem);}
+.crisis-strong{font-family:"Newsreader",Georgia,serif;font-size:clamp(1.4rem,2.2vw,1.9rem);
+  color:var(--navy);line-height:1.25;margin-top:2px;}
+.crisis .btn{margin-top:8px;}
 
 /* Differentiator */
 .approach{background:var(--navy);color:#fff;}
