@@ -255,8 +255,8 @@ a:hover{color:var(--blue);}
 
 /* How it works */
 .how{background-color:var(--sand);
-  background-image:url(assets/texture.webp);
-  background-size:1500px auto;background-position:right -120px bottom -160px;background-repeat:no-repeat;
+  background-image:url(assets/texture.svg);
+  background-size:820px auto;background-position:right bottom;background-repeat:no-repeat;
   border-top:1px solid var(--line);}
 .steps{list-style:none;margin:clamp(32px,4vw,52px) 0 0;padding:0;
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(24px,3vw,40px);}
