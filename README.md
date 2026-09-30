@@ -100,9 +100,10 @@ Accessible Canada Act / Accessible BC Act):
 - **"Nurse" wording:** two reviews mention a "nurse." The body copy says caregivers have
   "care experience or recognized home-care training." If your team includes RNs/LPNs, we can
   say so explicitly; if not, the current wording is the safe, accurate choice.
-- **Testimonial video:** the Reviews section plays the real United Respite Care video
-  (`assets/testimonial.mp4`, compressed to ~4 MB with a poster frame). It does not autoplay; visitors
-  press play. If you replace it, keep the same filename or update the `<source>` in `index.html`, and
-  refresh `assets/testimonial-poster.webp`. Add captions to the source video for full accessibility.
+- **Testimonial videos:** the Reviews section plays two real family testimonial videos
+  (`assets/testimonial-family.mp4` and `assets/testimonial-vertical.mp4`, both compressed for web with
+  poster frames). Neither autoplays; visitors press play, and starting one pauses the other. To replace
+  them, keep the same filenames (or update the `<source>` and `poster` in `index.html`) and refresh the
+  matching `assets/poster-*.webp`. Add captions to the source videos for full accessibility.
 - **Reviews consent:** these are public Google reviews. A quick heads-up to each reviewer is a
   courteous touch; we can shorten to first name + initial if you prefer.

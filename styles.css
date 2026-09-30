@@ -210,20 +210,31 @@ a:hover{color:var(--blue);}
 .stories{background:var(--sand);}
 .stories>.wrap>h2{margin-bottom:12px;}
 .stories-intro{max-width:70ch;color:#3a3752;margin-bottom:clamp(28px,4vw,44px);}
-.video-wrap{max-width:560px;margin-bottom:clamp(32px,4vw,44px);}
-.video-player{position:relative;width:100%;aspect-ratio:1/1;border-radius:var(--radius-lg);overflow:hidden;
+/* Two vertical testimonial videos side by side */
+.video-duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px);
+  max-width:760px;margin:clamp(28px,4vw,40px) auto 0;}
+.video-item{margin:0;display:flex;flex-direction:column;gap:12px;}
+.video-item figcaption{text-align:center;color:#3a3752;font-size:1rem;font-weight:700;}
+.video-player{position:relative;width:100%;aspect-ratio:9/16;border-radius:var(--radius-lg);overflow:hidden;
   background:#1f1c36;box-shadow:var(--shadow);}
 .video-player video{width:100%;height:100%;object-fit:cover;display:block;background:#1f1c36;}
 .video-play-btn{position:absolute;inset:0;width:100%;height:100%;border:0;cursor:pointer;
-  background:linear-gradient(rgba(31,28,54,.15),rgba(31,28,54,.45));
+  background:linear-gradient(rgba(31,28,54,.12),rgba(31,28,54,.42));
   display:flex;align-items:center;justify-content:center;transition:background-color .15s;}
-.video-play-btn:hover{background:linear-gradient(rgba(31,28,54,.25),rgba(31,28,54,.55));}
+.video-play-btn:hover{background:linear-gradient(rgba(31,28,54,.22),rgba(31,28,54,.52));}
 .video-play-btn.is-hidden{display:none;}
-.video-play-btn .play{width:84px;height:84px;border-radius:50%;background:#fff;
+.video-play-btn .play{width:76px;height:76px;border-radius:50%;background:#fff;
   display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -10px rgba(0,0,0,.6);
   padding-left:4px;transition:transform .15s;}
 .video-play-btn:hover .play{transform:scale(1.06);}
-.video-caption{margin-top:12px;color:var(--muted);font-size:1rem;}
+
+/* CTA under the videos */
+.video-cta{text-align:center;margin:clamp(32px,4.5vw,52px) auto clamp(8px,2vw,16px);
+  display:flex;flex-direction:column;align-items:center;gap:18px;}
+.video-cta h3{font-size:clamp(1.4rem,2.4vw,1.9rem);color:var(--navy);max-width:22ch;}
+
+.reviews-lead{text-align:center;color:#3a3752;font-size:1.05rem;
+  margin:clamp(40px,6vw,68px) auto clamp(24px,3vw,32px);max-width:60ch;}
 .reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
 .review{background:#fff;border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px;}
 .stars{display:flex;gap:3px;}
@@ -313,6 +324,8 @@ a:hover{color:var(--blue);}
   .trustbar ul{gap:10px 24px;}
   .trustbar li{font-size:.95rem;}
   .svc-also{flex-direction:column;align-items:flex-start;}
+  .video-duo{gap:12px;}
+  .video-item figcaption{font-size:.9rem;}
   .reviews{grid-template-columns:1fr;}
   .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
   .steps{grid-template-columns:1fr;}
@@ -332,5 +345,45 @@ a:hover{color:var(--blue);}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
-  *{transition:none !important;}
+  *{transition:none !important;animation:none !important;}
+  .reveal{opacity:1 !important;transform:none !important;}
 }
+
+/* ===================== SMOOTH LOADING & ANIMATIONS ===================== */
+/* Crisper font rendering reduces the "flash" feel as fonts settle */
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+
+/* Gentle whole-page fade so content arrives softly rather than snapping in */
+@keyframes page-in{from{opacity:0}to{opacity:1}}
+body{animation:page-in .5s ease both;}
+
+/* Scroll-reveal: elements start slightly down + transparent, then ease in
+   when they enter the viewport (JS adds .is-visible). Hiding is gated behind
+   .js so that without JavaScript (or if the observer fails) everything shows. */
+.js .reveal{opacity:0;transform:translateY(22px);
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity,transform;}
+.js .reveal.is-visible{opacity:1;transform:none;}
+
+/* Staggering for grids of cards, reviews, gallery, steps, trust items */
+.js .reveal-stagger > *{opacity:0;transform:translateY(20px);
+  transition:opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);}
+.js .reveal-stagger.is-visible > *{opacity:1;transform:none;}
+.reveal-stagger.is-visible > *:nth-child(1){transition-delay:.00s}
+.reveal-stagger.is-visible > *:nth-child(2){transition-delay:.08s}
+.reveal-stagger.is-visible > *:nth-child(3){transition-delay:.16s}
+.reveal-stagger.is-visible > *:nth-child(4){transition-delay:.24s}
+.reveal-stagger.is-visible > *:nth-child(5){transition-delay:.32s}
+.reveal-stagger.is-visible > *:nth-child(6){transition-delay:.40s}
+
+/* Subtle lift on interactive cards for a bit of life on hover */
+.svc-card{transition:transform .25s ease, box-shadow .25s ease;}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 26px 54px -30px rgba(43,39,74,.5);}
+.review{transition:transform .25s ease, box-shadow .25s ease;}
+.review:hover{transform:translateY(-3px);box-shadow:0 20px 44px -30px rgba(43,39,74,.4);}
+.gallery-grid img{transition:transform .35s ease;}
+.gallery-grid li{overflow:hidden;border-radius:var(--radius);}
+.gallery-grid li:hover img{transform:scale(1.05);}
+
+/* No-JS safety net: if JS is disabled, reveal classes must not hide content */
+.no-js .reveal, .no-js .reveal-stagger > *{opacity:1 !important;transform:none !important;}

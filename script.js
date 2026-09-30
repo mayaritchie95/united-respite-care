@@ -83,17 +83,64 @@ if (resetBtn) {
   });
 }
 
-// 3) Testimonial video: custom play overlay
+// 3) Testimonial videos: custom play overlay (works for any number of players)
 (function () {
-  var vid = document.getElementById('testimonial-video');
-  var btn = document.getElementById('video-play-btn');
-  if (!vid || !btn) return;
-  btn.addEventListener('click', function () {
-    btn.classList.add('is-hidden');
-    vid.play();
-    vid.focus();
+  var players = [].slice.call(document.querySelectorAll('.video-player'));
+  players.forEach(function (player) {
+    var vid = player.querySelector('video');
+    var btn = player.querySelector('.video-play-btn');
+    if (!vid || !btn) return;
+    btn.addEventListener('click', function () {
+      // Pause any other playing testimonial so two don't play at once
+      players.forEach(function (other) {
+        if (other !== player) {
+          var ov = other.querySelector('video');
+          if (ov && !ov.paused) ov.pause();
+        }
+      });
+      btn.classList.add('is-hidden');
+      vid.play();
+      vid.focus();
+    });
+    vid.addEventListener('play', function () { btn.classList.add('is-hidden'); });
+    vid.addEventListener('ended', function () { btn.classList.remove('is-hidden'); });
   });
-  // If the user pauses, bring the overlay back only if playback hasn't started far in
-  vid.addEventListener('play', function () { btn.classList.add('is-hidden'); });
-  vid.addEventListener('ended', function () { btn.classList.remove('is-hidden'); });
+})();
+
+// 4) Scroll reveal animations (respects reduced-motion; degrades gracefully)
+(function () {
+  var els = [].slice.call(document.querySelectorAll('.reveal, .reveal-stagger'));
+  if (!els.length) return;
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // If no IntersectionObserver or reduced motion, just show everything.
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target); // reveal once, then stop watching
+      }
+    });
+  }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+
+  els.forEach(function (el) { io.observe(el); });
+
+  // Safety: reveal anything already in view on load, and everything after 3s
+  // so content can never get stuck hidden.
+  requestAnimationFrame(function () {
+    els.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < (window.innerHeight || document.documentElement.clientHeight)) {
+        el.classList.add('is-visible');
+      }
+    });
+  });
+  setTimeout(function () {
+    els.forEach(function (el) { el.classList.add('is-visible'); });
+  }, 3000);
 })();

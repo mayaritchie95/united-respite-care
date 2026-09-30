@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
+<script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Home Care in Surrey, Langley &amp; Delta | United Respite Care Inc.</title>
@@ -15,6 +16,8 @@
 <link rel="icon" href="assets/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/logo.webp">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
@@ -40,7 +43,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="#top" aria-label="United Respite Care Inc. — home">
-      <img src="assets/logo.webp" alt="United Respite Care Inc." width="140" height="64">
+      <img src="assets/logo.webp" alt="United Respite Care Inc." width="140" height="64" loading="eager" fetchpriority="high" decoding="async">
     </a>
     <nav class="main-nav" aria-label="Primary">
       <a href="#services">Services</a>
@@ -76,7 +79,7 @@
           Call United Respite Care
         </a>
       </div>
-      <img class="hero-photo" src="assets/hero.webp" alt="A United Respite Care caregiver steadying a senior client on his balcony" width="1600" height="893" loading="lazy">
+      <img class="hero-photo" src="assets/hero.webp" alt="A United Respite Care caregiver steadying a senior client on his balcony" width="1600" height="893" loading="eager" fetchpriority="high" decoding="async">
     </div>
 
     <div class="form-card" id="consult">
@@ -191,7 +194,7 @@
 
 <section class="trust" aria-label="Why families trust us">
   <div class="wrap">
-    <ul class="trust-grid" style="list-style:none;margin:0;padding:0">
+    <ul class="trust-grid reveal-stagger" style="list-style:none;margin:0;padding:0">
       <li class="trust-item">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path><path d="M10 21v-6h4v6"></path></svg>
         <span><span class="t-title">Locally owned</span><br><span class="t-sub">Based in Langley, serving Surrey, Langley &amp; Delta</span></span>
@@ -213,7 +216,7 @@
         <span><span class="t-title">Family communication</span><br><span class="t-sub">Regular feedback and updates</span></span>
       </li>
       <li class="trust-item">
-        <img src="assets/bbb-accredited.webp" alt="BBB Accredited Business">
+        <img src="assets/bbb-accredited.webp" alt="BBB Accredited Business" width="738" height="300" loading="lazy" decoding="async">
       </li>
     </ul>
   </div>
@@ -221,7 +224,7 @@
 
 <section id="services" class="section" aria-labelledby="services-title">
   <div class="wrap">
-    <div class="services-head">
+    <div class="services-head reveal">
       <div>
         <h2 id="services-title">The care your family is looking for</h2>
         <p class="lead">From personal care and companionship to specialized dementia, Parkinson's and post-hospital support — every care plan is built around one person's needs, routines and preferences.</p>
@@ -229,7 +232,7 @@
       <a class="btn btn-outline" href="#consult">Tell us what you need</a>
     </div>
 
-    <div class="svc-primary">
+    <div class="svc-primary reveal-stagger">
       <article class="svc-card svc-card-lead">
         <span class="svc-tag">Most requested</span>
         <img class="svc-photo" src="assets/svc-hourly.webp" alt="A caregiver supporting a senior man with a reassuring hand on his shoulder" width="760" height="507" loading="lazy">
@@ -264,7 +267,7 @@
 
     <div class="svc-also">
       <span class="svc-also-label">We also provide</span>
-      <ul class="svc-also-list">
+      <ul class="svc-also-list reveal-stagger">
         <li>Dementia Care</li>
         <li>Parkinson's Support</li>
         <li>Respite Care</li>
@@ -279,7 +282,7 @@
 <!-- Life at home gallery -->
 <section class="gallery" aria-label="Care at home">
   <div class="wrap">
-    <ul class="gallery-grid">
+    <ul class="gallery-grid reveal-stagger">
       <li><img src="assets/gal-dementia.webp" alt="A caregiver doing a shape-puzzle activity with a senior woman" width="760" height="507" loading="lazy"></li>
       <li><img src="assets/gal-meals.webp" alt="A caregiver serving a smiling senior man breakfast in bed" width="760" height="507" loading="lazy"></li>
       <li><img src="assets/gal-mobility.webp" alt="A caregiver helping a senior woman with mobility exercises using a walker" width="760" height="507" loading="lazy"></li>
@@ -289,7 +292,7 @@
 </section>
 
 <section id="approach" class="approach section" aria-labelledby="approach-title">
-  <div class="wrap approach-grid">
+  <div class="wrap approach-grid reveal">
     <div>
       <h2 id="approach-title">Not just a caregiver — the right caregiver.</h2>
       <p class="approach-lead" style="margin-top:22px">Anyone can send a different worker each week. We do the opposite: we match your loved one with a consistent caregiver who fits their personality, and keep that team familiar.</p>
@@ -313,25 +316,47 @@
 
 <section id="stories" class="stories section" aria-labelledby="stories-title">
   <div class="wrap">
-    <h2 id="stories-title">What families say about United Respite Care</h2>
-    <p class="stories-intro">Don't just take our word for it. Families across Surrey and Langley have shared real, 5-star reviews about the care they've received — here's what they say.</p>
+    <h2 id="stories-title" class="reveal">Hear From a Family We've Had the Privilege to Support</h2>
+    <p class="stories-intro reveal">Real care. Real relationships. Real peace of mind.</p>
 
-    <div class="video-wrap">
-      <div class="video-player" id="video-player">
-        <video id="testimonial-video" preload="none" playsinline controls
-               poster="assets/testimonial-poster.webp" aria-label="United Respite Care family testimonial video">
-          <source src="assets/testimonial.mp4" type="video/mp4">
-          Sorry, your browser doesn't support embedded video. You can
-          <a href="assets/testimonial.mp4">download the video</a> instead.
-        </video>
-        <button type="button" class="video-play-btn" id="video-play-btn" aria-label="Play testimonial video">
-          <span class="play" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#2B274A"></path></svg></span>
-        </button>
-      </div>
-      <p class="video-caption">A moment of care with United Respite Care.</p>
+    <div class="video-duo reveal-stagger">
+      <figure class="video-item">
+        <div class="video-player">
+          <video preload="none" playsinline controls poster="assets/poster-family.webp"
+                 aria-label="A family shares their experience with United Respite Care">
+            <source src="assets/testimonial-family.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded video. You can
+            <a href="assets/testimonial-family.mp4">download the video</a> instead.
+          </video>
+          <button type="button" class="video-play-btn" aria-label="Play family testimonial video">
+            <span class="play" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#2B274A"></path></svg></span>
+          </button>
+        </div>
+        <figcaption>A family shares their experience</figcaption>
+      </figure>
+      <figure class="video-item">
+        <div class="video-player">
+          <video preload="none" playsinline controls poster="assets/poster-vertical.webp"
+                 aria-label="A family testimonial about United Respite Care">
+            <source src="assets/testimonial-vertical.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded video. You can
+            <a href="assets/testimonial-vertical.mp4">download the video</a> instead.
+          </video>
+          <button type="button" class="video-play-btn" aria-label="Play family testimonial video">
+            <span class="play" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="#2B274A"></path></svg></span>
+          </button>
+        </div>
+        <figcaption>In their own words</figcaption>
+      </figure>
     </div>
 
-    <div class="reviews">
+    <div class="video-cta reveal">
+      <h3>Ready to talk about care for someone you love?</h3>
+      <a class="btn btn-primary" href="#consult">Book your Free 1-Hour In-Home Consultation</a>
+    </div>
+
+    <p class="reviews-lead reveal">More families across Surrey, Langley and Delta have shared their experience:</p>
+    <div class="reviews reveal-stagger">
       <figure class="review">
         <div class="stars" role="img" aria-label="5 out of 5 stars">
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" fill="#ECB30F"></path></svg>
@@ -371,7 +396,7 @@
 </section>
 
 <section id="founder" class="section" aria-labelledby="founder-title">
-  <div class="wrap founder-grid">
+  <div class="wrap founder-grid reveal">
     <img class="founder-photo" src="assets/founder-headshot.webp" alt="Lutgarda Mariano, Founder of United Respite Care" width="960" height="1154" loading="lazy">
     <div class="founder-copy">
       <h2 id="founder-title">Care that feels personal</h2>
@@ -385,7 +410,7 @@
 
 <!-- Offer band -->
 <section class="offerband" aria-labelledby="offer-title">
-  <div class="wrap">
+  <div class="wrap reveal">
     <p class="offer-flag offer-flag-light"><span>Free 1-Hour In-Home Consultation</span></p>
     <h2 id="offer-title">Free 1-Hour In-Home Consultation</h2>
     <p>Let's meet in your loved one's home, talk about what's happening and learn about their routines, personality, preferences and care needs. We'll discuss the type of support your family is looking for and whether United Respite Care is the right fit.</p>
@@ -395,8 +420,8 @@
 
 <section id="how" class="how section" aria-labelledby="how-title">
   <div class="wrap">
-    <h2 id="how-title">Getting started is simple</h2>
-    <ol class="steps">
+    <h2 id="how-title" class="reveal">Getting started is simple</h2>
+    <ol class="steps reveal-stagger">
       <li class="step"><span class="num">1</span><span class="st-name">Tell us what's happening</span><span class="st-desc">Call us or fill in the form. A few details about your situation are all we need to begin.</span></li>
       <li class="step"><span class="num">2</span><span class="st-name">Your Free 1-Hour In-Home Consultation</span><span class="st-desc">We visit, meet your loved one, and talk through needs, routines, personality, preferences and any concerns — at no cost.</span></li>
       <li class="step"><span class="num">3</span><span class="st-name">A personal plan &amp; care team</span><span class="st-desc">Together we decide the right support and schedule, and match caregivers to the person, not just the tasks.</span></li>
@@ -406,7 +431,7 @@
 </section>
 
 <section id="areas" class="section" aria-labelledby="close-title">
-  <div class="wrap close-grid">
+  <div class="wrap close-grid reveal">
     <div class="close-copy">
       <h2 id="close-title">Let's talk about what your family needs</h2>
       <p class="lead">Whether you're beginning to notice changes in a loved one, preparing for a hospital discharge, managing dementia or Parkinson's, or simply need more support at home, we're here to listen.</p>
