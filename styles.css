@@ -256,7 +256,7 @@ a:hover{color:var(--blue);}
 /* How it works */
 .how{position:relative;background-color:var(--sand);
   background-image:url(assets/texture.svg);
-  background-size:820px auto;background-position:right bottom;background-repeat:no-repeat;
+  background-size:min(70%,900px) auto;background-position:right bottom;background-repeat:no-repeat;
   border-top:1px solid var(--line);}
 /* Fade the texture into the sand at the bottom so lines never reach the border */
 .how::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;pointer-events:none;
