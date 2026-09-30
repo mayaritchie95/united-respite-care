@@ -259,17 +259,21 @@ a:hover{color:var(--blue);}
 .founder-sign span{color:var(--muted);}
 
 /* How it works */
-.how{position:relative;background-color:var(--sand);
+.how{position:relative;background-color:var(--paper);
   background-image:url(assets/texture.svg);
   background-size:min(70%,900px) auto;background-position:right bottom;background-repeat:no-repeat;
-  border-top:1px solid var(--line);}
-/* Fade the texture into the sand at the bottom so lines never reach the border */
+  padding-top:clamp(96px,11vw,150px);}
+/* Sand wave divider flowing down from the reviews section above, connecting the two */
+.how::before{content:"";position:absolute;left:0;right:0;top:-1px;height:clamp(70px,8vw,120px);
+  background:url(assets/wave-divider.svg) top center/100% 100% no-repeat;}
+/* Fade the texture into the paper at the bottom so lines never reach the border */
 .how::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;pointer-events:none;
-  background:linear-gradient(to bottom, rgba(229,211,170,0) 0%, var(--sand) 92%);}
+  background:linear-gradient(to bottom, rgba(252,252,250,0) 0%, var(--paper) 92%);}
 .how > .wrap{position:relative;z-index:1;}
 .steps{list-style:none;margin:clamp(32px,4vw,52px) 0 0;padding:0;
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(24px,3vw,40px);}
-.step{background:rgba(255,255,255,.85);border-radius:18px;border-top:4px solid var(--navy);
+.step{background:#fff;border:1px solid var(--line);border-radius:18px;border-top:4px solid var(--navy);
+  box-shadow:0 14px 36px -30px rgba(43,39,74,.4);
   padding:24px 24px 28px;display:flex;flex-direction:column;gap:10px;}
 .step .num{font-family:"Newsreader",Georgia,serif;font-size:2.6rem;line-height:1;color:var(--navy);}
 .step .st-name{font-weight:700;font-size:1.15rem;}
